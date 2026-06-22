@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "can-bus-workbench"
+version = "0.1.0"
+description = "Local-first CAN/CAN FD reverse-engineering workbench"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{ name = "Tamara-Jade Walters" }]
+license = { text = "MIT" }
+dependencies = [
+  "python-can>=4.4.0",
+  "cantools>=39.4.0",
+]
+
+[project.scripts]
+canwb = "can_workbench.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
